@@ -1,6 +1,6 @@
 import os, sys
 from flask import Flask, request
-#from utils import wit_response
+from utils import wit_response
 from pymessenger import Bot
 
 #initialise Flask app
@@ -25,33 +25,49 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-  data=request.get_json()
-  log(data)
+	data = request.get_json()
+	log(data)
 
-  if data['object']=='page':
-    for entry in data['entry']:
-      for messaging_event in entry['messaging']:
-        
-        sender_id=messaging_event['sender']['id']
-        recipient_id=messaging_event['recipient']['id']
+	if data['object'] == 'page':
+		for entry in data['entry']:
+			for messaging_event in entry['messaging']:
 
-        if messaging_event.get('message'):
-            if 'text' in messaging_event['message']:
-              messaging_text=messaging_event['message']['text']
-            else:
-               messaging_text='no text'
+				# IDs
+				sender_id = messaging_event['sender']['id']
+				recipient_id = messaging_event['recipient']['id']
 
-            response =messaging_text
-            bot.send_text_message(sender_id,response)
+				if messaging_event.get('message'):
+					# Extracting text message
+					if 'text' in messaging_event['message']:
+						messaging_text = messaging_event['message']['text']
+					else:
+						messaging_text = 'no text'
 
-  return "ok", 200
+					# Echo
+					#response = messaging_text
+
+					response = None
+
+					entity, value = wit_response(messaging_text)
+
+					if entity == "daytype":
+						response = "Why did you have a {} day?".format(str(value))
+					elif entity == "name":
+						response = "Hello! My name is Mitra.".format(str(value))
+					elif entity == "sayhello":
+						response = "Hello there, I'm Mitra! How was your day?"
+					elif entity == "location":
+						response = "So how is {}?".format(str(value))
+					if response == None:
+						response = "Sorry" 
+
+					bot.send_text_message(sender_id, response)
+
+	return "ok", 200
 
 def log(message):
-  print(message)
-  sys.stdout.flush()
-
-
-
+    print(message)
+    sys.stdout.flush()
 
 if __name__=="__main__":
    app.run(debug=True,port=80)

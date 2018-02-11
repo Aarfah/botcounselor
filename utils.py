@@ -1,6 +1,6 @@
-#from wit import Wit
+from wit import Wit
 
-access_token = "XK2RBGUI3P4WAKOUMDZSMNBXQG4KOPUV"
+access_token = "EUA3JSXFPYHAF676JKSOJHUM6KJSSUTO"
 
 #creation of wit.ai client
 client = Wit(access_token = access_token)
