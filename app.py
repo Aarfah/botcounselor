@@ -26,7 +26,7 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-	createtable()
+	#createtable()
 	data = request.get_json()
 	log(data)
 
@@ -51,7 +51,7 @@ def webhook():
 					response = None
 
 					entity, value = wit_response(messaging_text)
-					print (messaging_text)
+					#print (messaging_text)
 					if entity == "daytype":
 						response = "Why did you have a {} day?".format(str(value))
 					elif entity == "name":
