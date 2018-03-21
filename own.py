@@ -21,5 +21,5 @@ def createtable():
 	cursor.execute(sql)
 
 	# disconnect from server
-	#db.close()
-createtable()
+	db.close()
+#createtable()
