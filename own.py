@@ -21,4 +21,4 @@ def createtable():
 	cursor.execute(sql)
 
 	# disconnect from server
-	db.close()
+	#db.close()
