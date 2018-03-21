@@ -51,7 +51,7 @@ def webhook():
 					response = None
 
 					entity, value = wit_response(messaging_text)
-
+					print messaging_text
 					if entity == "daytype":
 						response = "Why did you have a {} day?".format(str(value))
 					elif entity == "name":
@@ -63,7 +63,7 @@ def webhook():
 					if response == None:
 						response = "Sorry" 
 
-					bot.send_text_message(sender_id, messaging_text)
+					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
