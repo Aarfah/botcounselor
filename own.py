@@ -22,3 +22,4 @@ def createtable():
 
 	# disconnect from server
 	#db.close()
+createtable()
