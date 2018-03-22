@@ -60,8 +60,8 @@ def webhook():
 						response = "So how is {}?".format(str(value))
 					if response == None:
 						response = "Sorry" 
-
-					bot.send_text_message(sender_id, response)
+					m = messaging_text
+					bot.send_text_message(sender_id, m + response)
 
 	return "ok", 200
 
