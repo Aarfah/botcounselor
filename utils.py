@@ -21,7 +21,5 @@ def wit_response(message_text):
 	except:
 		pass
 	return(entity, value)
-	
-
 
 #print(wit_response("I had a good day"))

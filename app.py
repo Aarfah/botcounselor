@@ -2,7 +2,6 @@ import os, sys
 from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
-from own import createtable
 
 #initialise Flask app
 app = Flask(__name__) 
@@ -26,7 +25,6 @@ def verify():
 
 @app.route('/', methods=['POST'])
 def webhook():
-	#createtable()
 	data = request.get_json()
 	log(data)
 
@@ -51,7 +49,7 @@ def webhook():
 					response = None
 
 					entity, value = wit_response(messaging_text)
-					#print (messaging_text)
+
 					if entity == "daytype":
 						response = "Why did you have a {} day?".format(str(value))
 					elif entity == "name":
