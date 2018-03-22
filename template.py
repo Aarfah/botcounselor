@@ -1,5 +1,4 @@
 from app import *
-
 categories = ['future concerns','exam stress','lack of sleep','overload at work','physical appearance','confrontations with parents']#TODO
 subcateg = [['Low self esteem',' Low confidence','Resistant to change','Competition'],['External pressure','Internal pressure','Lack of preparation'],['Chronological Illness',
 'Work pressure','Addiction'],['Environmental factors','Heatlh issues','Negativity','Low productivity'],['Media comparison','Genetic','Low self esteem'],['Authority figure',
@@ -9,15 +8,19 @@ solutions =[['take up aptitude tests in terms of careers','Mix with people of yo
 ['increase self esteem','one needs to understand that everyone is different and everyone has different ways of living life.','its okay to be the way I am kinda attitude should be inculcated!'],
 ['Best way is to talk and find a mutual solution.','Try to explain your perspective without opposing theirs','Perform self-analysis and do your best.','inculcating empathy for the elder generation! ']]
  
+ def getQuestion(no):
+	return categories[no]
+ 
+ '''
 lencateg = len(categories)
 useroptions = []
 i = 0
 for i in range(lencateg):
     #useroptions.append([])
-	ip = input('Are you worried about ' + categories[i])
+	#ip = input('Are you worried about ' + categories[i])
 	#get input from user forgot the code about it
-	#intput = getinput() #correct this pls TODO
-	intput = str(m)
+	input = str(m) #correct this pls TODO
+	#intput = 'yes'
 	if (input == 'yes'): #TODO
 		useroptions.append(i) #useroptions=[0]
 	i = i+1
@@ -32,7 +35,7 @@ while i< len(useroptions):
 			print (solutions[i][p])
 		p = p+1
 	i=i+1
-
+'''
 '''while i< len(useroptions):
 	#solutions.append(usersuboptions[i])
 	#print(solutions[usersuboptions[i]])#usersuboptions=[1,2,5]
