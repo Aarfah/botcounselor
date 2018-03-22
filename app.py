@@ -11,7 +11,7 @@ PAGE_ACCESS_TOKEN = "EAAFGnmzStNcBAIVibLcyq18ZBXpgoNeeQSDhYq9qjcKiIGkvtEZB0ZCUVG
 
 bot = Bot(PAGE_ACCESS_TOKEN)
 i=0
-
+m [] 
 @app.route('/', methods=['GET'])
 def verify():
 	# Webhook verification
@@ -46,11 +46,11 @@ def webhook():
 
 					# Echo
 					#response = messaging_text
-
+					m.append(messaging_text)
 					response = None
-
+					
 					entity, value = wit_response(messaging_text)
-
+					
 					if entity == "daytype":
 						response = "Why did you have a {} day?".format(str(value))
 					elif entity == "name":
