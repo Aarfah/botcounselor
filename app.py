@@ -62,6 +62,7 @@ def webhook():
 					if response == None:
 						response = "Sorry" 
 					#m = messaging_text
+					m1=m[i]
 					bot.send_text_message(sender_id,m[i]+response)
 					#i = i + 1
 
