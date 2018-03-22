@@ -11,7 +11,7 @@ solutions =[['take up aptitude tests in terms of careers','Mix with people of yo
 def getQuestion(no):
 	return categories[no]
  
- '''
+'''
 lencateg = len(categories)
 useroptions = []
 i = 0
