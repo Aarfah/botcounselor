@@ -46,7 +46,7 @@ def webhook():
 
 					# Echo
 					#response = messaging_text
-					m.append(i)
+					m.append(messaging_text)
 					response = None
 					
 					entity, value = wit_response(messaging_text)
