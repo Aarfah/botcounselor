@@ -8,7 +8,7 @@ solutions =[['take up aptitude tests in terms of careers','Mix with people of yo
 ['increase self esteem','one needs to understand that everyone is different and everyone has different ways of living life.','its okay to be the way I am kinda attitude should be inculcated!'],
 ['Best way is to talk and find a mutual solution.','Try to explain your perspective without opposing theirs','Perform self-analysis and do your best.','inculcating empathy for the elder generation! ']]
  
- def getQuestion(no):
+def getQuestion(no):
 	return categories[no]
  
  '''
