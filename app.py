@@ -63,7 +63,7 @@ def webhook():
 						response = "Sorry" 
 					#print (messaging_text)
 					m = messaging_text
-					bot.send_text_message(sender_id,messaging_text+ "\t" + response)
+					bot.send_text_message(sender_id,m+ "\t" + response)
 
 	return "ok", 200
 
