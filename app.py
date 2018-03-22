@@ -46,7 +46,7 @@ def webhook():
 
 					# Echo
 					#response = messaging_text
-					m.append(messaging_text)
+					m.append(i)
 					response = None
 					
 					entity, value = wit_response(messaging_text)
@@ -63,7 +63,7 @@ def webhook():
 						response = "Sorry" 
 					#m = messaging_text
 					bot.send_text_message(sender_id,m[i]+response)
-					#i = i + 1
+					i = i + 1
 
 	return "ok", 200
 
