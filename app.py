@@ -2,7 +2,6 @@ import os, sys
 from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
-#from own import createtable
 
 #initialise Flask app
 app = Flask(__name__) 
@@ -28,7 +27,7 @@ def verify():
 def webhook():
 	data = request.get_json()
 	log(data)
-	#createtable()
+
 	if data['object'] == 'page':
 		for entry in data['entry']:
 			for messaging_event in entry['messaging']:
@@ -61,9 +60,8 @@ def webhook():
 						response = "So how is {}?".format(str(value))
 					if response == None:
 						response = "Sorry" 
-					#print (messaging_text)
-					m = messaging_text
-					bot.send_text_message(sender_id,m+ "\t" + response)
+
+					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
