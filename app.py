@@ -12,6 +12,7 @@ PAGE_ACCESS_TOKEN = "EAAFGnmzStNcBAIVibLcyq18ZBXpgoNeeQSDhYq9qjcKiIGkvtEZB0ZCUVG
 bot = Bot(PAGE_ACCESS_TOKEN)
 i=0
 m=[] 
+m1=[]
 @app.route('/', methods=['GET'])
 def verify():
 	# Webhook verification
@@ -59,12 +60,14 @@ def webhook():
 						response = "Hello there, I'm Mitra! How was your day?"
 					elif entity == "location":
 						response = "So how is {}?".format(str(value))
+					elif entity == "ans":
+						m1 = algo(m)
 					if response == None:
 						response = "Sorry" 
 					#m = messaging_text
-					m1=m[i]
-					bot.send_text_message(sender_id,m[i]+response)
-					#i = i + 1
+					#m1=algo(m)
+					bot.send_text_message(sender_id,m1+response)
+					i = i + 1
 
 	return "ok", 200
 
