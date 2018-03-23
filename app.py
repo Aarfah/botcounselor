@@ -45,7 +45,7 @@ def webhook():
 
 					# Echo
 					#response = messaging_text
-
+					m.append(messaging_text)
 					response = None
 
 					entity, value = wit_response(messaging_text)
@@ -59,11 +59,13 @@ def webhook():
 					elif entity == "location":
 						response = "So how is {}?".format(str(value))
 					elif entity == "ans":
-						response = "are you ready for answering?"
+						#response = "are you ready for answering?"
+						#m1 = algo(m)
+						#bot.send_text_message(sender_id, m1)
 					if response == None:
 						response = "Sorry" 
 
-					bot.send_text_message(sender_id, messaging_text+response)
+					bot.send_text_message(sender_id, m+response)
 
 	return "ok", 200
 
