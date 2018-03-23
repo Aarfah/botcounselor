@@ -58,6 +58,8 @@ def webhook():
 						response = "Hello there, I'm Mitra! How was your day?"
 					elif entity == "location":
 						response = "So how is {}?".format(str(value))
+					elif entity == "ans":
+						response = "are you ready for answering?"
 					if response == None:
 						response = "Sorry" 
 
