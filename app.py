@@ -66,7 +66,7 @@ def webhook():
 						response = "Sorry" 
 					#m = messaging_text
 					#m1=algo(m)
-					bot.send_text_message(sender_id,response)
+					bot.send_text_message(sender_id,m+response)
 					i = i + 1
 
 	return "ok", 200
