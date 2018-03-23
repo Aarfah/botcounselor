@@ -60,8 +60,8 @@ def webhook():
 						response = "Hello there, I'm Mitra! How was your day?"
 					elif entity == "location":
 						response = "So how is {}?".format(str(value))
-					elif entity == "ans":
-						m1 = algo(m)
+					#elif entity == "ans":
+						#m1 = algo(m)
 					if response == None:
 						response = "Sorry" 
 					#m = messaging_text
