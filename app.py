@@ -2,7 +2,6 @@ import os, sys
 from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
-import template
 
 #initialise Flask app
 app = Flask(__name__) 
@@ -10,9 +9,8 @@ app = Flask(__name__)
 PAGE_ACCESS_TOKEN = "EAAFGnmzStNcBAIVibLcyq18ZBXpgoNeeQSDhYq9qjcKiIGkvtEZB0ZCUVGyxuYg5bl6qeYiJB9apFXem2A1C7ZCyKrGHuxEKQsvD85bkXlkmHLCRIwRxyDhEZANMwTxoX6VU2co6Jm6LBpvA3p9a7WF614BgZBzHLOYukYZCzBKutF9TCEH94iv"
 
 bot = Bot(PAGE_ACCESS_TOKEN)
-i=0
-m=[] 
-m1=[]
+
+
 @app.route('/', methods=['GET'])
 def verify():
 	# Webhook verification
@@ -29,7 +27,7 @@ def verify():
 def webhook():
 	data = request.get_json()
 	log(data)
-	
+
 	if data['object'] == 'page':
 		for entry in data['entry']:
 			for messaging_event in entry['messaging']:
@@ -47,11 +45,11 @@ def webhook():
 
 					# Echo
 					#response = messaging_text
-					m.append(messaging_text)
+
 					response = None
-					
+
 					entity, value = wit_response(messaging_text)
-					
+
 					if entity == "daytype":
 						response = "Why did you have a {} day?".format(str(value))
 					elif entity == "name":
@@ -60,15 +58,10 @@ def webhook():
 						response = "Hello there, I'm Mitra! How was your day?"
 					elif entity == "location":
 						response = "So how is {}?".format(str(value))
-					elif entity == "ans":
-						response = "are you ready for answering?"
-						#m1 = algo(m)
 					if response == None:
 						response = "Sorry" 
-					#m = messaging_text
-					#m1=algo(m)
-					bot.send_text_message(sender_id,response)
-					#i = i + 1
+
+					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
