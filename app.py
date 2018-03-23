@@ -59,13 +59,13 @@ def webhook():
 					elif entity == "location":
 						response = "So how is {}?".format(str(value))
 					elif entity == "ans":
-						#response = "are you ready for answering?"
-						m1 = algo(messaging_text)
-						bot.send_text_message(sender_id, m1)
+						response = "are you ready for answering?"
+						#m1 = algo(messaging_text)
+						#bot.send_text_message(sender_id, m1)
 					if response == None:
 						response = "Sorry" 
 
-					bot.send_text_message(sender_id, response)
+					bot.send_text_message(sender_id, messaging_text+response)
 
 	return "ok", 200
 
