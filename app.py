@@ -53,7 +53,7 @@ def webhook():
 					if entity == "daytype":
 						response = "Why did you have a {} day?".format(str(value))
 					elif entity == "name":
-						response = "Hello! My name is Mitra.".format(str(value))
+						response = "Hello! My name is Mitra."
 					elif entity == "sayhello":
 						response = "Hello there, I'm Mitra! How was your day?"
 					elif entity == "location":
