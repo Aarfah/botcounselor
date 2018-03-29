@@ -2,6 +2,7 @@ import os, sys
 from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
+import mysql.connector
 
 #initialise Flask app
 app = Flask(__name__) 
@@ -27,6 +28,7 @@ def verify():
 def webhook():
 	data = request.get_json()
 	log(data)
+	cnx = mysql.connector.connect(user='sql12229537',password='fduArMVZ7p',host='sql12.freemysqlhosting.net',database='sql12229537')
 
 	if data['object'] == 'page':
 		for entry in data['entry']:
