@@ -9,7 +9,7 @@ app = Flask(__name__)
 PAGE_ACCESS_TOKEN = "EAAFGnmzStNcBAIVibLcyq18ZBXpgoNeeQSDhYq9qjcKiIGkvtEZB0ZCUVGyxuYg5bl6qeYiJB9apFXem2A1C7ZCyKrGHuxEKQsvD85bkXlkmHLCRIwRxyDhEZANMwTxoX6VU2co6Jm6LBpvA3p9a7WF614BgZBzHLOYukYZCzBKutF9TCEH94iv"
 
 bot = Bot(PAGE_ACCESS_TOKEN)
-
+i=0
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -64,8 +64,8 @@ def webhook():
 						#bot.send_text_message(sender_id, m1)
 					if response == None:
 						response = "Sorry" 
-
-					bot.send_text_message(sender_id, messaging_text+response)
+					i++
+					bot.send_text_message(sender_id, messaging_text+i+response)
 
 	return "ok", 200
 
