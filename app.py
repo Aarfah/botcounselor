@@ -28,8 +28,6 @@ def verify():
 def webhook():
 	data = request.get_json()
 	log(data)
-	cnx = mysql.connector.connect(user='sql12229537',password='fduArMVZ7p',host='sql12.freemysqlhosting.net',database='sql12229537')
-
 	if data['object'] == 'page':
 		for entry in data['entry']:
 			for messaging_event in entry['messaging']:
@@ -37,7 +35,6 @@ def webhook():
 				# IDs
 				sender_id = messaging_event['sender']['id']
 				recipient_id = messaging_event['recipient']['id']
-
 				if messaging_event.get('message'):
 					# Extracting text message
 					if 'text' in messaging_event['message']:
@@ -49,10 +46,12 @@ def webhook():
 					#response = messaging_text
 					#m.append(messaging_text)
 					response = None
-
+					cnx = mysql.connector.connect(user='sql12229537',password='fduArMVZ7p',host='sql12.freemysqlhosting.net',database='sql12229537')
+					''' Load variables '''
 					entity, value = wit_response(messaging_text)
-
-					if entity == "daytype":
+					if questMode == 1:
+						
+					elif entity == "daytype":
 						response = "Y did you have a {} day?".format(str(value))
 					elif entity == "name":
 						response = "Hello! My name is Mitra."
@@ -62,11 +61,14 @@ def webhook():
 						response = "So how is {}?".format(str(value))
 					elif entity == "ans":
 						response = "are you ready for answering?"
+						bot.send_buttons(recipient_id, "You can find me with below", [ActionButton(ButtonType.WEB_URL, "Blog", "http://blog.enginebai.com"),ActionButton(ButtonType.POSTBACK, "Email", Intent.EMAIL)])
+						questMode = 1
 						#m1 = algo(messaging_text)
 						#bot.send_text_message(sender_id, m1)
 					if response == None:
 						response = "Sorry"
 					#i=i+1
+					''' Upload variables to DB '''
 					bot.send_text_message(sender_id, str(sender_id)+response)
 
 	return "ok", 200
