@@ -12,6 +12,7 @@ PAGE_ACCESS_TOKEN = "EAAFGnmzStNcBAIVibLcyq18ZBXpgoNeeQSDhYq9qjcKiIGkvtEZB0ZCUVG
 bot = Bot(PAGE_ACCESS_TOKEN)
 i=0
 
+
 @app.route('/', methods=['GET'])
 def verify():
 	# Webhook verification
@@ -61,7 +62,17 @@ def webhook():
 						response = "So how is {}?".format(str(value))
 					elif entity == "ans":
 						response = "are you ready for answering?"
-						bot.send_buttons(sender_id, "You can find me with below", [ActionButton(ButtonType.WEB_URL, "Blog", "http://blog.enginebai.com"),ActionButton(ButtonType.POSTBACK, "Email", Intent.EMAIL)])
+						if messaging_event.get("postback"):
+						# user clicked/tapped "postback" button in earlier message
+ 
+						message_text = messaging_event["postback"]["payload"]
+						# the button's payload
+ 						log("Inside postback")
+ 						message_text = message_text.lower()
+ 						sender_id = messaging_event["sender"]["id"]
+ 						if (message_text == "YES"):
+						bot.send_text_message(sender_id, "Yay! This button works!")
+						#bot.send_buttons(sender_id, "You can find me with below", [ActionButton(ButtonType.WEB_URL, "Blog", "http://blog.enginebai.com"),ActionButton(ButtonType.POSTBACK, "Email", Intent.EMAIL)])
 						questMode = 1
 						#m1 = algo(messaging_text)
 						#bot.send_text_message(sender_id, m1)
