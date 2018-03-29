@@ -61,7 +61,7 @@ def webhook():
 						response = "So how is {}?".format(str(value))
 					elif entity == "ans":
 						response = "are you ready for answering?"
-						bot.send_buttons(recipient_id, "You can find me with below", [ActionButton(ButtonType.WEB_URL, "Blog", "http://blog.enginebai.com"),ActionButton(ButtonType.POSTBACK, "Email", Intent.EMAIL)])
+						bot.send_buttons(sender_id, "You can find me with below", [ActionButton(ButtonType.WEB_URL, "Blog", "http://blog.enginebai.com"),ActionButton(ButtonType.POSTBACK, "Email", Intent.EMAIL)])
 						questMode = 1
 						#m1 = algo(messaging_text)
 						#bot.send_text_message(sender_id, m1)
