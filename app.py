@@ -49,9 +49,9 @@ def webhook():
 					cnx = mysql.connector.connect(user='sql12229537',password='fduArMVZ7p',host='sql12.freemysqlhosting.net',database='sql12229537')
 					''' Load variables '''
 					entity, value = wit_response(messaging_text)
-					if questMode == 1:
+					#if questMode == 1:
 						
-					elif entity == "daytype":
+					if entity == "daytype":
 						response = "Y did you have a {} day?".format(str(value))
 					elif entity == "name":
 						response = "Hello! My name is Mitra."
