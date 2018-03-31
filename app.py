@@ -3,7 +3,7 @@ from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
 import mysql.connector
-import curl
+
 #initialise Flask app
 app = Flask(__name__)
 
@@ -52,34 +52,134 @@ def webhook():
 					entity, value = wit_response(messaging_text)
 					#if questMode == 1:
 						
-					if entity == "daytype":
-						response = "Y did you have a {} day?".format(str(value))
-					elif entity == "name":
-						response = "Hello! My name is Mitra."
-					elif entity == "sayhello":
-						response = "Hello there, I'm Mitra! How was your day?"
-					elif entity == "location":
-						response = "So how is {}?".format(str(value))
-					elif entity == "ans":
-						response = "are you ready for answering?"
-						if messaging_event.get("postback"):
-						# user clicked/tapped "postback" button in earlier message
-							messaging_text = messaging_event["postback"]["payload"]
-						# the button's payload
-							log("Inside postback")
-							messaging_text = messaging_text.lower()
-							sender_id = messaging_event["sender"]["id"]
-							if (messaging_text == "YES"):
-								bot.send_text_message(sender_id, "Yay! This button works!")
-						#bot.send_buttons(sender_id, "You can find me with below", [ActionButton(ButtonType.WEB_URL, "Blog", "http://blog.enginebai.com"),ActionButton(ButtonType.POSTBACK, "Email", Intent.EMAIL)])
-						#questMode = 1
-						#m1 = algo(messaging_text)
-						#bot.send_text_message(sender_id, m1)
-					if response == None:
-						response = "Sorry"
-					#i=i+1
-					''' Upload variables to DB '''
-					bot.send_text_message(sender_id, str(sender_id)+response)
+					if messaging_text == "Hello":
+						response = "Hello there, I'm Mitra, should we start now?"
+						buttons =	[
+										{
+											'type':'postback',
+											'title':'yes',
+											'payload':'q1_yes'
+										},
+										{
+											'type':'postback',
+											'title':'no',
+											'payload':'q1_no'
+										}
+									]
+						bot.send_button_message(sender_id,response,buttons)
+						#bot.send_text_message(sender_id, response)
+				elif 'postback' in messaging_event:
+					payload_name = messaging_event['postback']['payload']
+					if payload_name == "q1_yes":
+						response = "Do you have any concerns about your future?"
+						buttons =	[
+										{
+											'type':'postback',
+											'title':'yes',
+											'payload':'q2_yes'
+										},
+										{
+											'type':'postback',
+											'title':'no',
+											'payload':'q2_no'
+										}
+									]
+						bot.send_button_message(sender_id,response,buttons)
+					elif payload_name == "q1_no":
+						response = "Have a great day then!"
+						bot.send_text_message(sender_id, response)
+					elif payload_name == "q2_yes":
+						response = "Do you have low self esteem?"
+						buttons =	[
+										{
+											'type':'postback',
+											'title':'yes',
+											'payload':'q3_yes'
+										},
+										{
+											'type':'postback',
+											'title':'no',
+											'payload':'q3_no'
+										}
+									] 
+						bot.send_button_message(sender_id,response,buttons)
+					elif payload_name == "q3_yes" or payload_name == "q3_no":
+						response = "Do you feel like you have lack of self confidence?"
+						buttons =	[
+										{
+											'type':'postback',
+											'title':'yes',
+											'payload':'q4_yes'
+										},
+										{
+											'type':'postback',
+											'title':'no',
+											'payload':'q4_no'
+										}
+									]
+						bot.send_button_message(sender_id,response,buttons)
+					elif payload_name == "q4_yes" or payload_name == "q4_no":
+						response = "Are you afraid of facing changes in life?"
+						buttons =	[
+										{
+											'type':'postback',
+											'title':'yes',
+											'payload':'q5_yes'
+										},
+										{
+											'type':'postback',
+											'title':'no',
+											'payload':'q5_no'
+										}
+									]
+						bot.send_button_message(sender_id,response,buttons)
+					elif payload_name == "q5_yes" or payload_name == "q5_no":
+						response = "Does outside competition affect your performance?"
+						buttons =	[
+										{
+											'type':'postback',
+											'title':'yes',
+											'payload':'q6_yes'
+										},
+										{
+											'type':'postback',
+											'title':'no',
+											'payload':'q6_no'
+										}
+									]
+						bot.send_button_message(sender_id,response,buttons)
+					elif payload_name == "q6_yes" or payload_name == "q6_no":
+						response = "Do you have exam fear?"
+						buttons =	[
+										{
+											'type':'postback',
+											'title':'yes',
+											'payload':'q7_yes'
+										},
+										{
+											'type':'postback',
+											'title':'no',
+											'payload':'q7_no'
+										}
+									]
+						bot.send_button_message(sender_id,response,buttons)
+					elif payload_name == "q2_no":
+						response = "Do you have exam fear?"
+						buttons =	[
+										{
+											'type':'postback',
+											'title':'yes',
+											'payload':'q7_yes'
+										},
+										{
+											'type':'postback',
+											'title':'no',
+											'payload':'q7_no'
+										}
+									]
+						bot.send_button_message(sender_id,response,buttons)	
+
+
 
 	return "ok", 200
 
