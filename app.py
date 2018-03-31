@@ -48,7 +48,7 @@ def webhook():
 					response = None
 					entity, value = wit_response(messaging_text)
 					if messaging_text == "Hello" or "hello" or "hey" or "Hey" or "HELLO" :
-						response = "Are you ready for answering?"				
+						response = "Hello there, I'm Mitra, should we start now?"				
 						buttons =	[
 										{
 											'type':'postback',
@@ -119,7 +119,8 @@ def webhook():
 						if payload_name == "q3_yes":
 							sol="Take up aptitude tests in terms of careers"
 							bot.send_text_message(sender_id, sol)
-							bot.send_video_url(sender_id,"https://www.youtube.com/watch?v=FeLpvgAVtU8")
+							url = "https://www.youtube.com/watch?v=FeLpvgAVtU8"
+							bot.send_video_url(sender_id,url)
 						bot.send_button_message(sender_id,response,buttons)					
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 					
@@ -139,6 +140,8 @@ def webhook():
 						if payload_name == "q4_yes":
 							sol="Mix with people of your own strata initially to increase your self-confidence"
 							bot.send_text_message(sender_id,sol)
+							url = "https://www.youtube.com/watch?v=llsRkWjM8hU"
+							bot.send_video_url(sender_id,url)
 						bot.send_button_message(sender_id,response,buttons)
 						
 					elif payload_name == "q5_yes" or payload_name == "q5_no":
