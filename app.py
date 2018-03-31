@@ -123,6 +123,7 @@ def webhook():
 						if payload_name == "q3_yes":
 							sol="Take up aptitude tests in terms of careers"
 							bot.send_text_message(sender_id, sol)
+							#send_video_url(sender_id, video_url)
 						bot.send_button_message(sender_id,response,buttons)					
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 					
@@ -264,9 +265,6 @@ def webhook():
 											'payload':'q12_no'
 										}
 									]
-						if payload_name == "q12_yes":
-							sol="Consult a doctor"
-							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q12_yes" or payload_name == "q12_no":
 						response = "Are you facing any sort of work pressure?"
@@ -282,8 +280,8 @@ def webhook():
 											'payload':'q13_no'
 										}
 									]
-						if payload_name == "q13_yes":
-							sol="time management"
+						if payload_name == "q12_yes":
+							sol="Consult a doctor"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q13_yes" or payload_name == "q13_no":
@@ -318,7 +316,9 @@ def webhook():
 											'payload':'q15_no'
 										}
 									]
-									
+						if payload_name == "q14_yes":
+							sol="Set time and frequency limits and follow them rigorously"
+							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q15_yes":
 						response = "Are the environmental factors affecting your performance?"
