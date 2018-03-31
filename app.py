@@ -194,9 +194,7 @@ def webhook():
 											'payload':'q8_no'
 										}
 									]
-						if payload_name == "q8_yes":
-							sol=" Have faith in your preparation and don’t get demotivated by others."
-							bot.send_text_message(sender_id, sol)
+						
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q8_yes" or payload_name == "q8_no":
 						response = "Is internal pressure affecting your academic performance?"
@@ -212,8 +210,8 @@ def webhook():
 											'payload':'q9_no'
 										}
 									]
-						if payload_name == "q9_yes":
-							sol="Do not procrastinate"
+						if payload_name == "q8_yes":
+							sol=" Have faith in your preparation and don’t get demotivated by others."
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q9_yes" or payload_name == "q9_no":
@@ -230,8 +228,8 @@ def webhook():
 											'payload':'q10_no'
 										}
 									]
-						if payload_name == "q10_yes":
-							sol="Do not procrastinate and Manage time"
+						if payload_name == "q9_yes":
+							sol="Do not procrastinate"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)	
 					elif payload_name == "q10_yes" or payload_name == "q10_no" or payload_name == "q7_no":
@@ -248,6 +246,9 @@ def webhook():
 											'payload':'q11_no'
 										}
 									]
+						if payload_name == "q10_yes":
+							sol="Do not procrastinate and Manage time well"
+							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q11_yes":
 						response = "Are you suffering from any chronological illness?"
