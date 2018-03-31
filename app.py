@@ -162,7 +162,7 @@ def webhook():
 							sol="one needs to start becoming strong emotionally in order to consider future in terms of family and friends"
 							bot.send_text_message(sender_id,sol)
 						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q6_yes" or "q7_yes" or "q2_no":
+					elif payload_name == "q6_yes" or payload_name == "q6_no" or payload_name == "q2_no":
 						response = "Do you have exam fear?"
 						buttons =	[
 										{
