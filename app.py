@@ -66,7 +66,7 @@ def webhook():
 						bot.send_button_message(sender_id,response,buttons)
 					elif 'postback' in messaging_event:
 						payload_name = messaging_event['postback']['payload']
-					if payload_name == "q1_yes":
+						if payload_name == "q1_yes":
 						response = "Do you have any concerns about your future?"
 						buttons =	[
 										{
