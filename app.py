@@ -48,9 +48,16 @@ def webhook():
 					
 					response = None
 					entity, value = wit_response(messaging_text)
-									
-					if messaging_text == "Hello" or "hello" or "hey" or "Hey" or "HEY" or "HELLO" or "heya":
-						response = "Hello there, I'm Mitra, should we start now?"
+					if entity == "daytype":
+						response = "Why did you have a {} day? Do you need counseling service".format(str(value))
+					elif entity == "name":
+						response = "Hello! My name is Mitra."
+					elif entity == "sayhello":
+						response = "Hello there, I'm Mitra! How was your day?"
+					elif entity == "location":
+						response = "So how is {}?".format(str(value))
+					elif entity == "ans":
+						response = "Are you ready for answering?"				
 						buttons =	[
 										{
 											'type':'postback',
