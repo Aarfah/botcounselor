@@ -3,7 +3,7 @@ from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
 import mysql.connector
-
+import curl
 #initialise Flask app
 app = Flask(__name__)
 
