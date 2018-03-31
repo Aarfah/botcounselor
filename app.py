@@ -333,9 +333,7 @@ def webhook():
 											'payload':'q16_no'
 										}
 									]
-						if payload_name == "q15_yes":
-							sol="Keep a balance between everything you do"
-							bot.send_text_message(sender_id, sol)
+						
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q16_yes" or payload_name == "q16_no":
 						response = "Do you have any health issues?"
@@ -352,8 +350,9 @@ def webhook():
 										}
 									]
 						if payload_name == "q16_yes":
-							sol="Consult a doctor and follow the regime prescribed"
+							sol="Keep a balance between everything you do"
 							bot.send_text_message(sender_id, sol)
+						
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q17_yes" or payload_name == "q17_no":
 						response = "Do you feel that you're a pessimistic thinker?"
@@ -369,8 +368,8 @@ def webhook():
 											'payload':'q18_no'
 										}
 									]
-						if payload_name == "q17_yes":
-							sol="Subjective solutions on the basis of work"
+						if payload_name == "q16_yes":
+							sol="Consult a doctor and follow the regime prescribed"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q18_yes" or payload_name == "q18_no":
@@ -387,6 +386,9 @@ def webhook():
 											'payload':'q19_no'
 										}
 									]
+						if payload_name == "q17_yes":
+							sol="Subjective solutions on the basis of work"
+							bot.send_text_message(sender_id, sol)
 						if payload_name == "q18_yes":
 							sol="Be confident and work on your weaknesses to perform well"
 							bot.send_text_message(sender_id, sol)
