@@ -176,6 +176,9 @@ def webhook():
 											'payload':'q7_no'
 										}
 									]
+						if payload_name == "q6_yes":
+							sol="Learn from your competitor’s strategies and success instead of getting demotivated."
+							bot.send_text_message(sender_id,sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q7_yes":
 						response = "Is it external pressure that is worrying you?"
