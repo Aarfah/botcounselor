@@ -368,7 +368,7 @@ def webhook():
 											'payload':'q18_no'
 										}
 									]
-						if payload_name == "q16_yes":
+						if payload_name == "q17_yes":
 							sol="Consult a doctor and follow the regime prescribed"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
@@ -386,11 +386,8 @@ def webhook():
 											'payload':'q19_no'
 										}
 									]
-						if payload_name == "q17_yes":
-							sol="Subjective solutions on the basis of work"
-							bot.send_text_message(sender_id, sol)
 						if payload_name == "q18_yes":
-							sol="Be confident and work on your weaknesses to perform well"
+							sol="Subjective solutions on the basis of work"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q19_yes" or payload_name == "q19_no" or payload_name == "q15_no":
@@ -407,6 +404,9 @@ def webhook():
 											'payload':'q20_no'
 										}
 									]
+						if payload_name == "q19_yes":
+							sol="Be confident and work on your weaknesses to perform well"
+							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q20_yes":
 						response = "Do you compare your appearance with that of celebrities?"
@@ -425,7 +425,6 @@ def webhook():
 						if payload_name == "q20_yes":
 							sol="avoid comparison,increase self esteem, one's own acceptance is necessary!,once accepted, one can work on changing, if they want to. But acceptance is necessary!,its okay to be the way I am kinda attitude should be inculcated!"
 							bot.send_text_message(sender_id, sol)
-						bot.send_button_message(sender_id,response,buttons)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q21_yes" or payload_name == "q21_no":
 						response = "Are you unhappy with your genetics?"
