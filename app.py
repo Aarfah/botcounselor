@@ -548,10 +548,10 @@ def webhook():
 							sol="Perform self-analysis and do your best "
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
-					elif payload == "q28_yes":
+					elif payload_name == "q28_yes":
 						sol=" Try to inculcate empathy and respect for the elder generation by spending more time with them and understanding their perspectives.  "
 						bot.send_text_message(sender_id, sol)
-					elif payload == "q28_no":
+					elif payload_name == "q28_no":
 						sol="Nice talking to you!"
 						bot.send_text_message(sender_id, sol)						
 	return "ok", 200
