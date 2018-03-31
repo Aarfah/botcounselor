@@ -231,7 +231,7 @@ def webhook():
 							sol="Do not procrastinate and Manage time"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)	
-					elif payload_name == "q10_yes" or "q11_yes" or payload_name == "q7_no":
+					elif payload_name == "q10_yes" or payload_name == "q10_no" or payload_name == "q7_no":
 						response = "Is lack of sleep disturbing your daily life?"
 						buttons =	[
 										{
