@@ -122,7 +122,7 @@ def webhook():
 						if payload_name == "q3_yes":
 							sol="Take up aptitude tests in terms of careers"
 							bot.send_text_message(sender_id, sol)
-							bot.send_video_url(sender_id, https://www.youtube.com/watch?v=FeLpvgAVtU8)
+							#bot.send_video_url(sender_id, https://www.youtube.com/watch?v=FeLpvgAVtU8)
 						bot.send_button_message(sender_id,response,buttons)					
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 					
