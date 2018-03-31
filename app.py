@@ -387,7 +387,7 @@ def webhook():
 										}
 									]
 						if payload_name == "q18_yes":
-							sol="Subjective solutions on the basis of work"
+							sol="Depends on the problem but one must always have positive attitude towards everything"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q19_yes" or payload_name == "q19_no" or payload_name == "q15_no":
