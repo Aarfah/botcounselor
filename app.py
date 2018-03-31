@@ -119,8 +119,7 @@ def webhook():
 						if payload_name == "q3_yes":
 							sol="Take up aptitude tests in terms of careers"
 							bot.send_text_message(sender_id, sol)
-							url = "https://www.youtube.com/watch?v=FeLpvgAVtU8"
-							bot.send_video_url(sender_id,url)
+							#bot.send_video_url(sender_id,url)
 						bot.send_button_message(sender_id,response,buttons)					
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 					
@@ -140,8 +139,7 @@ def webhook():
 						if payload_name == "q4_yes":
 							sol="Mix with people of your own strata initially to increase your self-confidence"
 							bot.send_text_message(sender_id,sol)
-							url = "https://www.youtube.com/watch?v=FeLpvgAVtU8"
-							bot.send_video_url(sender_id,url)
+							#bot.send_video_url(sender_id,url)
 						bot.send_button_message(sender_id,response,buttons)
 						
 					elif payload_name == "q5_yes" or payload_name == "q5_no":
@@ -161,6 +159,7 @@ def webhook():
 						if payload_name == "q5_yes":
 							sol="one needs to start becoming strong emotionally in order to consider future in terms of family and friends"
 							bot.send_text_message(sender_id,sol)
+							#url
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q6_yes" or payload_name == "q6_no" or payload_name == "q2_no":
 						response = "Do you have exam fear?"
@@ -179,6 +178,7 @@ def webhook():
 						if payload_name == "q6_yes":
 							sol="Learn from your competitor’s strategies and success instead of getting demotivated."
 							bot.send_text_message(sender_id,sol)
+							#url
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q7_yes":
 						response = "Is it external pressure that is worrying you?"
