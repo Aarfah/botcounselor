@@ -124,8 +124,8 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)
-						if payload_name == "q4_yes":
-							bot.send_text_message(sender_id,"Mix with people of your own strata initially to increase your self-confidence")
+						#if payload_name == "q4_yes":
+						bot.send_text_message(sender_id,"Mix with people of your own strata initially to increase your self-confidence")
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 						response = "Are you afraid of facing changes in life?"
 						buttons =	[
