@@ -51,7 +51,10 @@ def webhook():
 					''' Load variables '''
 					entity, value = wit_response(messaging_text)
 					#if questMode == 1:
-						
+					solutions =[['take up aptitude tests in terms of careers','Mix with people of your own strata initially to increase your self-confidence','one needs to start becoming strong emotionally in order to consider future in terms of family and friends',' Learn from your competitor’s strategies and success instead of getting demotivated.'],['Have faith in your preparation and don’t get demotivated by others.','- do not procrastinate','time management'],
+	['Consult a doctor','time management','Set time and frequency limits and follow them rigorously.'],['Keep a balance between everything you do','Consult a docor and follow the regime prescribed','subjective solutions on the basis of work','Be confident and work on  your weaknesses to perform well'],
+	['increase self esteem','one needs to understand that everyone is different and everyone has different ways of living life.','its okay to be the way I am kinda attitude should be inculcated!'],
+	['Best way is to talk and find a mutual solution.','Try to explain your perspective without opposing theirs','Perform self-analysis and do your best.','inculcating empathy for the elder generation! ']]
 					if messaging_text == "Hello":
 						response = "Hello there, I'm Mitra, should we start now?"
 						buttons =	[
@@ -66,7 +69,7 @@ def webhook():
 											'payload':'q1_no'
 										}
 									]
-						bot.send_button_message(sender_id,response+sender_id,buttons)
+						bot.send_button_message(sender_id,response,buttons)
 						#bot.send_text_message(sender_id, response)
 				elif 'postback' in messaging_event:
 					payload_name = messaging_event['postback']['payload']
@@ -85,6 +88,7 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)
+					
 					elif payload_name == "q1_no":
 						response = "Have a great day then!"
 						bot.send_text_message(sender_id, response)
@@ -103,6 +107,7 @@ def webhook():
 										}
 									] 
 						bot.send_button_message(sender_id,response,buttons)
+						bot.send_text_message(sender_id, "Take up aptitude tests in terms of careers")
 					elif payload_name == "q3_yes" or payload_name == "q3_no":
 						response = "Do you feel like you have lack of self confidence?"
 						buttons =	[
@@ -118,6 +123,7 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)
+						bot.send_text_message(sender_id,"Mix with people of your own strata initially to increase your self-confidence")
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 						response = "Are you afraid of facing changes in life?"
 						buttons =	[
