@@ -67,20 +67,20 @@ def webhook():
 					elif 'postback' in messaging_event:
 						payload_name = messaging_event['postback']['payload']
 						if payload_name == "q1_yes":
-						response = "Do you have any concerns about your future?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q2_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q2_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
+							response = "Do you have any concerns about your future?"
+							buttons =	[
+											{
+												'type':'postback',
+												'title':'yes',
+												'payload':'q2_yes'
+											},
+											{
+												'type':'postback',
+												'title':'no',
+												'payload':'q2_no'
+											}
+										]
+							bot.send_button_message(sender_id,response,buttons)
 					
 					elif payload_name == "q1_no":
 						response = "Have a great day then!"
