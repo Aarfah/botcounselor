@@ -45,13 +45,10 @@ def webhook():
 
 					# Echo
 					#response = messaging_text
-					#m.append(messaging_text)
-					response = None
-					cnx = mysql.connector.connect(user='sql12229537',password='fduArMVZ7p',host='sql12.freemysqlhosting.net',database='sql12229537')
-					''' Load variables '''
-					entity, value = wit_response(messaging_text)
-					#if questMode == 1:
 					
+					response = None
+					entity, value = wit_response(messaging_text)
+									
 					if messaging_text == "Hello" or "hello" or "hey" or "Hey" or "HEY" or "HELLO" or "heya":
 						response = "Hello there, I'm Mitra, should we start now?"
 						buttons =	[
@@ -68,7 +65,7 @@ def webhook():
 									]
 						bot.send_button_message(sender_id,response,buttons)
 					elif 'postback' in messaging_event:
-					payload_name = messaging_event['postback']['payload']
+						payload_name = messaging_event['postback']['payload']
 					if payload_name == "q1_yes":
 						response = "Do you have any concerns about your future?"
 						buttons =	[
