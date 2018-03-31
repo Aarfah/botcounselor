@@ -89,6 +89,7 @@ def webhook():
 					elif payload_name == "q1_no":
 						response = "Have a great day then!"
 						bot.send_text_message(sender_id, response)
+					
 					elif payload_name == "q2_yes":
 						response = "Do you have low self esteem?"
 						buttons =	[
@@ -122,10 +123,7 @@ def webhook():
 						if payload_name == "q3_yes":
 							sol="Take up aptitude tests in terms of careers"
 							bot.send_text_message(sender_id, sol)
-						bot.send_button_message(sender_id,response,buttons)
-						
-						#if payload_name == "q4_yes":
-						
+						bot.send_button_message(sender_id,response,buttons)					
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 					
 						response = "Are you afraid of facing changes in life?"
@@ -164,7 +162,7 @@ def webhook():
 							sol="one needs to start becoming strong emotionally in order to consider future in terms of family and friends"
 							bot.send_text_message(sender_id,sol)
 						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q6_yes" or payload_name == "q6_no":
+					elif payload_name == "q6_yes" or payload_name == "q6_no" or "q2_no":
 						response = "Do you have exam fear?"
 						buttons =	[
 										{
@@ -178,9 +176,6 @@ def webhook():
 											'payload':'q7_no'
 										}
 									]
-						if payload_name == "q6_yes":
-							sol="Learn from your competitor’s strategies and success instead of getting demotivated."
-							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q7_yes":
 						response = "Is it external pressure that is worrying you?"
@@ -196,7 +191,7 @@ def webhook():
 											'payload':'q8_no'
 										}
 									]
-						if payload_name == "q7_yes":
+						if payload_name == "q8_yes":
 							sol=" Have faith in your preparation and don’t get demotivated by others."
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
@@ -214,7 +209,7 @@ def webhook():
 											'payload':'q9_no'
 										}
 									]
-						if payload_name == "q8_yes":
+						if payload_name == "q9_yes":
 							sol="Do not procrastinate"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
@@ -232,7 +227,7 @@ def webhook():
 											'payload':'q10_no'
 										}
 									]
-						if payload_name == "q9_yes":
+						if payload_name == "q10_yes":
 							sol="Do not procrastinate and Manage time"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)	
