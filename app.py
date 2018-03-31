@@ -55,7 +55,7 @@ def webhook():
 	['Consult a doctor','time management','Set time and frequency limits and follow them rigorously.'],['Keep a balance between everything you do','Consult a docor and follow the regime prescribed','subjective solutions on the basis of work','Be confident and work on  your weaknesses to perform well'],
 	['increase self esteem','one needs to understand that everyone is different and everyone has different ways of living life.','its okay to be the way I am kinda attitude should be inculcated!'],
 	['Best way is to talk and find a mutual solution.','Try to explain your perspective without opposing theirs','Perform self-analysis and do your best.','inculcating empathy for the elder generation! ']]
-					if messaging_text == "Hello" or "hello" or "hey" or "Hey":
+					if messaging_text == "Hello":
 						response = "Hello there, I'm Mitra, should we start now?"
 						buttons =	[
 										{
@@ -74,7 +74,7 @@ def webhook():
 				elif 'postback' in messaging_event:
 					payload_name = messaging_event['postback']['payload']
 					if payload_name == "q1_yes":
-						response = "Do you have any conerns about your future?"
+						response = "Do you have any concerns about your future?"
 						buttons =	[
 										{
 											'type':'postback',
@@ -88,6 +88,7 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)
+					
 					elif payload_name == "q1_no":
 						response = "Have a great day then!"
 						bot.send_text_message(sender_id, response)
@@ -106,11 +107,10 @@ def webhook():
 										}
 									] 
 						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q2_yes":
-						bot.send_text_message(sender_id, "Mix with people")
-					    if payload_name == "q3_yes" or payload_name == "q3_no":
-							response = "Do you feel like you have lack of self confidence?"
-							buttons =	[
+						
+					elif payload_name == "q3_yes" or payload_name == "q3_no":
+						response = "Do you feel like you have lack of self confidence?"
+						buttons =	[
 										{
 											'type':'postback',
 											'title':'yes',
@@ -122,13 +122,17 @@ def webhook():
 											'payload':'q4_no'
 										}
 									]
-							bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q3_yes":
-						bot.send_text_message(sender_id, "Take up aptitude tests in terms of careers")
-					    if payload_name == "q4_yes" or payload_name == "q4_no":
-									
-							response = "Are you afraid of facing changes in life?"
-							buttons =	[
+						if payload_name == "q3_yes":
+							sol="Take up aptitude tests in terms of careers"
+							bot.send_text_message(sender_id, sol)
+						bot.send_button_message(sender_id,response,buttons)
+						
+						#if payload_name == "q4_yes":
+						
+					elif payload_name == "q4_yes" or payload_name == "q4_no":
+					
+						response = "Are you afraid of facing changes in life?"
+						buttons =	[
 										{
 											'type':'postback',
 											'title':'yes',
@@ -140,7 +144,11 @@ def webhook():
 											'payload':'q5_no'
 										}
 									]
-							bot.send_button_message(sender_id,response,buttons)
+						if payload_name == "q4_yes":
+							sol="Mix with people of your own strata initially to increase your self-confidence"
+							bot.send_text_message(sender_id,sol)
+						bot.send_button_message(sender_id,response,buttons)
+						
 					elif payload_name == "q5_yes" or payload_name == "q5_no":
 						response = "Does outside competition affect your performance?"
 						buttons =	[
@@ -155,8 +163,11 @@ def webhook():
 											'payload':'q6_no'
 										}
 									]
+						if payload_name == "q5_yes":
+							sol="one needs to start becoming strong emotionally in order to consider future in terms of family and friends"
+							bot.send_text_message(sender_id,sol)
 						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q6_yes" or payload_name == "q6_no" or payload_name == "q2_no":
+					elif payload_name == "q6_yes" or payload_name == "q6_no":
 						response = "Do you have exam fear?"
 						buttons =	[
 										{
@@ -171,322 +182,21 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q7_yes":
-						response = "Is it external pressure that is worrying you?"
+					elif payload_name == "q2_no":
+						response = "Do you have exam fear?"
 						buttons =	[
 										{
 											'type':'postback',
 											'title':'yes',
-											'payload':'q8_yes'
+											'payload':'q7_yes'
 										},
 										{
 											'type':'postback',
 											'title':'no',
-											'payload':'q8_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q8_yes" or payload_name == "q8_no":
-						response = "Is internal pressure affecting your academic performance?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q9_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q9_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q9_yes" or payload_name == "q9_no":
-						response = "Is there a lack of preparation from your side?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q10_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q10_no'
+											'payload':'q7_no'
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)	
-					elif payload_name == "q10_yes" or payload_name == "q10_no" or payload_name == "q7_no":
-						response = "Is lack of sleep disturbing your daily life?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q11_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q11_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q11_yes":
-						response = "Are you suffering from any chronological illness?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q12_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q12_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q12_yes" or payload_name == "q12_no":
-						response = "Are you facing any sort of work pressure?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q13_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q13_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q13_yes" or payload_name == "q13_no":
-						response = "Are you addicted to say, social media?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q14_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q14_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q14_yes" or payload_name == "q14_no" or payload_name == "q11_no":
-						response = "Are you having overload at school/college?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q15_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q15_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q15_yes":
-						response = "Are the environmental factors affecting your performance?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q16_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q16_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q16_yes" or payload_name == "q16_no":
-						response = "Do you have any health issues?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q17_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q17_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q17_yes" or payload_name == "q17_no":
-						response = "Do you feel that you're a pessimistic thinker?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q18_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q18_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q18_yes" or payload_name == "q18_no":
-						response = "Do you feel like you are being less productive lately?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q19_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q19_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q19_yes" or payload_name == "q19_no" or payload_name == "q15_no":
-						response = "Are you concerned about your physical appearance?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q20_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q20_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q20_yes":
-						response = "Do you compare your appearance with that of celebrities?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q21_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q21_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q21_yes" or payload_name == "q21_no":
-						response = "Are you unhappy with your genetics?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q22_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q22_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q22_yes" or payload_name == "q22_no":
-						response = "Do you feel like you have low self esteem issues?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q23_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q23_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q23_yes" or payload_name == "q23_no" or payload_name == "q20_no":
-						response = "Are you afraid to confront your parents in case of conflicts?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q24_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q24_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q24_yes":
-						response = "Are you having authority issues?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q25_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q25_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q25_yes" or payload_name == "q25_no":
-						response = "Are you afraid to talk to your parents due to the age gap?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q26_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q26_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q26_yes" or payload_name == "q26_no":
-						response = "Do you have low grades?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q27_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q27_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-					elif payload_name == "q27_yes" or payload_name == "q27_no":
-						response = "Do you feel like your potential is being underestimated your parents?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'yes',
-											'payload':'q28_yes'
-										},
-										{
-											'type':'postback',
-											'title':'no',
-											'payload':'q28_no'
-										}
-									]
-						bot.send_button_message(sender_id,response,buttons)
-
 
 
 
