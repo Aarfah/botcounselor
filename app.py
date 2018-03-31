@@ -120,7 +120,7 @@ def webhook():
 							sol="Take up aptitude tests in terms of careers"
 							bot.send_text_message(sender_id, sol)
 							url = "https://www.youtube.com/watch?v=FeLpvgAVtU8"
-							bot.send_video_url(sender_id,"video",url,notification_type=NotificationType.regular)
+							bot.send_video_url(sender_id,url)
 						bot.send_button_message(sender_id,response,buttons)					
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 					
@@ -140,8 +140,8 @@ def webhook():
 						if payload_name == "q4_yes":
 							sol="Mix with people of your own strata initially to increase your self-confidence"
 							bot.send_text_message(sender_id,sol)
-							url = "https://www.youtube.com/watch?v=llsRkWjM8hU"
-							bot.send_video_url(sender_id,"video",url,notification_type=NotificationType.regular)
+							url = "https://www.youtube.com/watch?v=FeLpvgAVtU8"
+							bot.send_video_url(sender_id,url)
 						bot.send_button_message(sender_id,response,buttons)
 						
 					elif payload_name == "q5_yes" or payload_name == "q5_no":
