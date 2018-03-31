@@ -67,8 +67,7 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)
-						#bot.send_text_message(sender_id, response)
-				elif 'postback' in messaging_event:
+					elif 'postback' in messaging_event:
 					payload_name = messaging_event['postback']['payload']
 					if payload_name == "q1_yes":
 						response = "Do you have any concerns about your future?"
@@ -123,7 +122,7 @@ def webhook():
 						if payload_name == "q3_yes":
 							sol="Take up aptitude tests in terms of careers"
 							bot.send_text_message(sender_id, sol)
-							#send_video_url(sender_id, video_url)
+							bot.send_video_url(sender_id, https://www.youtube.com/watch?v=FeLpvgAVtU8)
 						bot.send_button_message(sender_id,response,buttons)					
 					elif payload_name == "q4_yes" or payload_name == "q4_no":
 					
@@ -265,6 +264,7 @@ def webhook():
 											'payload':'q12_no'
 										}
 									]
+									
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q12_yes" or payload_name == "q12_no":
 						response = "Are you facing any sort of work pressure?"
@@ -299,7 +299,7 @@ def webhook():
 										}
 									]
 						if payload_name == "q13_yes":
-							sol="Set time and frequency limits and follow them rigorously"
+							sol="Manage time"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q14_yes" or payload_name == "q14_no" or payload_name == "q11_no":
