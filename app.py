@@ -387,7 +387,7 @@ def webhook():
 										}
 									]
 						if payload_name == "q18_yes":
-							sol="Depends on the problem but one must always have positive attitude towards everything"
+							sol="one must always have positive attitude towards everything"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q19_yes" or payload_name == "q19_no" or payload_name == "q15_no":
@@ -422,9 +422,6 @@ def webhook():
 											'payload':'q21_no'
 										}
 									]
-						if payload_name == "q20_yes":
-							sol="avoid comparison,increase self esteem, one's own acceptance is necessary!,once accepted, one can work on changing, if they want to. But acceptance is necessary!,its okay to be the way I am kinda attitude should be inculcated!"
-							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q21_yes" or payload_name == "q21_no":
 						response = "Are you unhappy with your genetics?"
@@ -441,7 +438,7 @@ def webhook():
 										}
 									]
 						if payload_name == "q21_yes":
-							sol="one needs to understand that everyone is different, and everyone has different ways of living life."
+							sol="avoid comparison,increase self esteem, one's own acceptance is necessary!,once accepted, one can work on changing, if they want to. But acceptance is necessary!,its okay to be the way I am kinda attitude should be inculcated!"
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q22_yes" or payload_name == "q22_no":
@@ -459,7 +456,7 @@ def webhook():
 										}
 									]
 						if payload_name == "q22_yes":
-							sol="one's own acceptance is necessary!"
+							sol="one needs to understand that everyone is different, and everyone has different ways of living life."
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q23_yes" or payload_name == "q23_no" or payload_name == "q20_no":
@@ -476,7 +473,9 @@ def webhook():
 											'payload':'q24_no'
 										}
 									]
-						
+						if payload_name == "q23_yes":
+							sol="one's own acceptance is necessary!"
+							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q24_yes":
 						response = "Are you having authority issues?"
@@ -492,9 +491,7 @@ def webhook():
 											'payload':'q25_no'
 										}
 									]
-						if payload_name == "q24_yes":
-							sol="Best way is to talk and find a mutual solution."
-							bot.send_text_message(sender_id, sol)
+						
 									
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q25_yes" or payload_name == "q25_no":
@@ -512,7 +509,7 @@ def webhook():
 										}
 									]
 						if payload_name == "q25_yes":
-							sol="Try to explain your perspective without opposing theirs. "
+							sol="Best way is to talk and find a mutual solution."
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q26_yes" or payload_name == "q26_no":
@@ -530,7 +527,7 @@ def webhook():
 										}
 									]
 						if payload_name == "q26_yes":
-							sol="Perform self-analysis and do your best "
+							sol="Try to explain your perspective without opposing theirs. "
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
 					elif payload_name == "q27_yes" or payload_name == "q27_no":
@@ -548,11 +545,15 @@ def webhook():
 										}
 									]
 						if payload_name == "q27_yes":
-							sol=" Try to inculcate empathy and respect for the elder generation by spending more time with them and understanding their perspectives.  "
+							sol="Perform self-analysis and do your best "
 							bot.send_text_message(sender_id, sol)
 						bot.send_button_message(sender_id,response,buttons)
-
-
+					elif payload == "q28_yes":
+						sol=" Try to inculcate empathy and respect for the elder generation by spending more time with them and understanding their perspectives.  "
+						bot.send_text_message(sender_id, sol)
+					elif payload == "q28_no":
+						sol="Nice talking to you!"
+						bot.send_text_message(sender_id, sol)						
 	return "ok", 200
 
 def log(message):
