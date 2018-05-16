@@ -16,7 +16,7 @@ count_ls=0 #lack of sleep
 count_os=0 #overload at school
 count_pa=0 #physical appearance
 count_pc=0 #confrontation with parents
-
+count=0
 @app.route('/', methods=['GET'])
 def verify():
 	# Webhook verification
@@ -36,6 +36,7 @@ def webhook():
 	global count_os
 	global count_pa
 	global count_pc
+	global count
 	data = request.get_json()
 	log(data)
 	if data['object'] == 'page':
@@ -893,15 +894,15 @@ def webhook():
 					elif payload_name == "q28_no" or payload_name == "q28_yes" or payload_name == "q23_no" :
 						if count_fc > 4:
 							responses = "It looks like you have concerns about your future."
-						if count_fe > 2:
+						elif count_fe > 2:
 							responses += " You seem to have exam fear."
-						if count_ls > 2:
+						elif count_ls > 2:
 							responses += " Lack of sleep might be the issue you are facing."
-						if count_os > 4:
+						elif count_os > 4:
 							responses = " Don't feel burdened due to overload in school/college work."
-						if count_pa > 2:
+						elif count_pa > 2:
 							responses += " Your concern about your physical appearance might be troubling you."
-						if count_pc > 2:
+						elif count_pc > 2:
 							responses += " It seems like confontation with your parents could be a problem." 	
 						count = count_fc+count_pc+count_pa+count_os+count_ls+count_fe
 						if count > 15:
