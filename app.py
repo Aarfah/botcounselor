@@ -57,6 +57,7 @@ def webhook():
 					#response = messaging_text
 
 					response = None
+					responses=None
 					entity, value = wit_response(messaging_text)
 					if messaging_text == "Hello" or "hello" or "hey" or "Hey" or "HELLO":
 						response = "Hello there, I'm Mitra, should we start now?"				
@@ -907,8 +908,8 @@ def webhook():
 						count = count_fc+count_pc+count_pa+count_os+count_ls+count_fe
 						if count > 15:
 							responses = "You are advised to visit the nearest counsellor." 
-						response = "Okay"
-						bot.send_text_message(sender_id, responses)
+						#response = "Okay"
+					bot.send_text_message(sender_id, responses)
 
 										
 	return "ok", 200
