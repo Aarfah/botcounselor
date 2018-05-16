@@ -890,7 +890,7 @@ def webhook():
 						sol="Nice talking to you!"
 						bot.send_text_message(sender_id, sol)
 					
-					elif payload_name == "bye":
+					elif payload_name == "bye" or payload_name == "q28_no" or payload_name == "q23_no":
 						#global count_pc
 						#count_pc+=1
 						#sol=" Try to inculcate empathy and respect for the elder generation by spending more time with them and understanding their perspectives.  "
