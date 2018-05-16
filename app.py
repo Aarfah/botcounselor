@@ -905,8 +905,8 @@ def webhook():
 						count = count_fc+count_pc+count_pa+count_os+count_ls+count_fe
 						if count > 15:
 							responses = "You are advised to visit the nearest counsellor." '''
-						responses = "Okay"
-						bot.send_text_message(sender_id, responses)
+						response = "Okay"
+						bot.send_text_message(sender_id, response)
 
 										
 	return "ok", 200
