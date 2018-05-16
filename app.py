@@ -890,7 +890,7 @@ def webhook():
 						#sol="Nice talking to you!"
 						#bot.send_text_message(sender_id, sol)
 					
-					elif payload_name == "q28_no" or payload_name == "q28_yes":
+					elif payload_name == "q28_no" or payload_name == "q28_yes" or payload_name == "q23_no" :
 						if count_fc > 4:
 							responses = "It looks like you have concerns about your future."
 						if count_fe > 2:
