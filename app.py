@@ -72,24 +72,7 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)
-				    elif messaging_text == "Bye" or "bye" or "Got to go":
-						'''if count_fc > 4:
-							responses = "It looks like you have concerns about your future."
-						if count_fe > 2:
-							responses += " You seem to have exam fear."
-						if count_ls > 2:
-							responses += " Lack of sleep might be the issue you are facing."
-						if count_os > 4:
-							responses = " Don't feel burdened due to overload in school/college work."
-						if count_pa > 2:
-							responses += " Your concern about your physical appearance might be troubling you."
-						if count_pc > 2:
-							responses += " It seems like confontation with your parents could be a problem." 	
-						count = count_fc+count_pc+count_pa+count_os+count_ls+count_fe
-						if count > 15:
-							responses = "You are advised to visit the nearest counsellor." '''
-						responses = "Okay"
-						bot.send_text_message(sender_id, responses)
+				    
 				elif 'postback' in messaging_event:
 					payload_name = messaging_event['postback']['payload']
 					if payload_name == "q1_yes": #category-start_yes
@@ -906,6 +889,24 @@ def webhook():
 					elif payload_name == "q28_no" or payload_name == "q28_yes":
 						sol="Nice talking to you!"
 						bot.send_text_message(sender_id, sol)
+					elif messaging_text == "Bye" or "bye" or "Got to go":
+						'''if count_fc > 4:
+							responses = "It looks like you have concerns about your future."
+						if count_fe > 2:
+							responses += " You seem to have exam fear."
+						if count_ls > 2:
+							responses += " Lack of sleep might be the issue you are facing."
+						if count_os > 4:
+							responses = " Don't feel burdened due to overload in school/college work."
+						if count_pa > 2:
+							responses += " Your concern about your physical appearance might be troubling you."
+						if count_pc > 2:
+							responses += " It seems like confontation with your parents could be a problem." 	
+						count = count_fc+count_pc+count_pa+count_os+count_ls+count_fe
+						if count > 15:
+							responses = "You are advised to visit the nearest counsellor." '''
+						responses = "Okay"
+						bot.send_text_message(sender_id, responses)
 
 										
 	return "ok", 200
