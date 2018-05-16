@@ -72,7 +72,7 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,response,buttons)
-				elif messaging_text == "Bye" or "bye" or "Got to go":
+				    elif messaging_text == "Bye" or "bye" or "Got to go":
 						'''if count_fc > 4:
 							responses = "It looks like you have concerns about your future."
 						if count_fe > 2:
