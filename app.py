@@ -886,26 +886,11 @@ def webhook():
 										}
 									]
 						bot.send_button_message(sender_id,sol,buttons1)
-					elif payload_name == "q28_no" or payload_name == "q28_yes":
-						sol="Nice talking to you!"
-						bot.send_text_message(sender_id, sol)
-					
-					elif payload_name == "bye" or payload_name == "q28_no" or payload_name == "q23_no":
-						#global count_pc
-						#count_pc+=1
-						#sol=" Try to inculcate empathy and respect for the elder generation by spending more time with them and understanding their perspectives.  "
+					#elif payload_name == "q28_no" or payload_name == "q28_yes":
+						#sol="Nice talking to you!"
 						#bot.send_text_message(sender_id, sol)
-						#response = "Do you have any conerns about your future?"
-						buttons =	[
-										{
-											'type':'postback',
-											'title':'bye',
-											'payload':'bye'
-										}
-							
-									]
-										
-					#elif messaging_text == "Bye" or "bye" or "Got to go":
+					
+					elif payload_name == "q28_no" or payload_name == "q28_yes":
 						if count_fc > 4:
 							responses = "It looks like you have concerns about your future."
 						if count_fe > 2:
@@ -921,9 +906,8 @@ def webhook():
 						count = count_fc+count_pc+count_pa+count_os+count_ls+count_fe
 						if count > 15:
 							responses = "You are advised to visit the nearest counsellor." 
-						#response = "Okay"
-						bot.send_button_message(sender_id,responses,buttons)
-						#bot.send_text_message(sender_id, response)
+						response = "Okay"
+						bot.send_text_message(sender_id, responses)
 
 										
 	return "ok", 200
