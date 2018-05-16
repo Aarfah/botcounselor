@@ -558,9 +558,9 @@ def webhook():
 					elif payload_name == "q28_yes":
 						sol=" Try to inculcate empathy and respect for the elder generation by spending more time with them and understanding their perspectives.  "
 						bot.send_text_message(sender_id, sol)
-					elif payload_name == "q28_no" or payload_name == "q28_yes":
+					elif payload_name == "q28_no" or payload_name == "q28_yes" or payload_name == "q23_no":
 						sol="Nice talking to you!"
-						bot.send_text_message(sender_id, sol)
+						#bot.send_text_message(sender_id, sol)
 						if count == 1 or count == 2:
 							sol = "The stress you have is minor!"
 						elif count == 3 or count ==4:
